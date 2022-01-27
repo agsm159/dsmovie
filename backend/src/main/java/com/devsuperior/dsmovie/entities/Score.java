@@ -1,43 +1,44 @@
 package com.devsuperior.dsmovie.entities;
 
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Column;
 
 @Entity
 @Table(name = "tb_score")
 public class Score {
 
-	@EmbeddedId
-	private ScorePK id = new ScorePK();
-	private Double value;
-	
-	public Score() {
-		
-	}
-	
-	public void setMovie(Movie movie) {
-		id.setMovie(movie);
-	}
-	
-	public void setUser(User user) {
-		id.setUser(user);
-	}
+    @EmbeddedId
+    private ScorePK id = new ScorePK();
 
-	public ScorePK getId() {
-		return id;
-	}
+    @Column(name = "value")
+    private Double score;
 
-	public void setId(ScorePK id) {
-		this.id = id;
-	}
+    public Score() {
+    }
 
-	public Double getValue() {
-		return value;
-	}
+    public void setMovie(Movie movie) {
+        this.id.setMovie(movie);
+    }
 
-	public void setValue(Double value) {
-		this.value = value;
-	}
-	
+    public void setUser(User user) {
+        this.id.setUser(user);
+    }
+
+    public ScorePK getId() {
+        return id;
+    }
+
+    public void setId(ScorePK id) {
+        this.id = id;
+    }
+
+    public Double getScore() {
+        return score;
+    }
+
+    public void setScore(Double score) {
+        this.score = score;
+    }
 }
